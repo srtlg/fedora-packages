@@ -20,8 +20,11 @@ rpm2cpio golang-github-rfjakob-gocryptfs-1.8.0-6.fc35.src.rpm | cpio -idv
 rm 0001-Update-go-fuse-import-path.patch gocryptfs_v1.8.0_src.tar.gz
 mv golang-github-rfjakob-gocryptfs.spec SPECS
 rpmdev-spectool -gR SPECS/golang-github-rfjakob-gocryptfs.spec
+# -either-
 rpmbuild -bs SPECS/golang-github-rfjakob-gocryptfs.spec
 mock SRPMS/golang-github-rfjakob-gocryptfs-1.8.0-6.fc36.src.rpm
+# -or-
+rpmbuild -bb SPECS/golang-github-rfjakob-gocryptfs.spec
 ```
 
 

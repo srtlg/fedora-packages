@@ -5,8 +5,8 @@
 
 # https://github.com/rfjakob/gocryptfs
 %global goipath         github.com/rfjakob/gocryptfs
-Version:                1.8.0
-%global extractdir      gocryptfs_v1.8.0_src
+Version:                2.2.1
+%global extractdir      gocryptfs_v2.2.1_src-deps
 
 %gometa
 
@@ -17,28 +17,13 @@ Encrypted overlay filesystem written in Go.}
 %global godocs          README.md
 
 Name:           %{goname}
-Release:        6%{?dist}
+Release:        1%{?dist}
 Summary:        Encrypted overlay filesystem written in Go
 
 License:        MIT
 URL:            %{gourl}
-Source0:        https://%{goipath}/releases/download/v%{version}/gocryptfs_v%{version}_src.tar.gz
-# Update go-fuse import path to github.com/hanwen/go-fuse/v2
-Patch0:         https://github.com/rfjakob/gocryptfs/commit/ec74d1d2f4217a9a337d1db9902f32ae2aecaf33.patch#/0001-Update-go-fuse-import-path.patch
+Source0:        https://%{goipath}/releases/download/v%{version}/gocryptfs_v%{version}_src-deps.tar.gz
 
-BuildRequires:  golang(github.com/hanwen/go-fuse/v2/fuse)
-BuildRequires:  golang(github.com/hanwen/go-fuse/v2/fuse/nodefs)
-BuildRequires:  golang(github.com/hanwen/go-fuse/v2/fuse/pathfs)
-BuildRequires:  golang(github.com/jacobsa/crypto/siv)
-BuildRequires:  golang(github.com/pkg/xattr)
-BuildRequires:  golang(github.com/rfjakob/eme)
-BuildRequires:  golang(github.com/sabhiram/go-gitignore)
-BuildRequires:  golang(golang.org/x/crypto/hkdf)
-BuildRequires:  golang(golang.org/x/crypto/scrypt)
-BuildRequires:  golang(golang.org/x/crypto/ssh/terminal)
-BuildRequires:  golang(golang.org/x/sync/syncmap)
-BuildRequires:  golang(golang.org/x/sys/unix)
-BuildRequires:  openssl-devel
 
 %description
 %{common_description}
@@ -61,16 +46,16 @@ Summary:       %{summary}
 This package contains the xray tool.
 
 %prep
-%goprep
-%patch0 -p1
+%goprep -k
 
 %build
 USVERSION=$(cat VERSION)
 GCVERSION=$USVERSION-Fedora-%{version}-%{release}
-FUSEVERSION=$(rpm -q golang-github-hanwen-fuse-devel --queryformat '%%{version}')
+FUSEVERSION='[vendored]'
 BUILDDATE=$(date +%Y-%m-%d -d @$SOURCE_DATE_EPOCH)
 # bex - notice the space here - it is needed and silly see https://pagure.io/go-rpm-macros/issue/19
 LDFLAGS="-X main.GitVersion=$GCVERSION -X main.GitVersionFuse=$FUSEVERSION -X main.BuildDate=$BUILDDATE "
+GOFLAGS="$GOFLAGS -buildmode=pie"
 %gobuild -o %{gobuilddir}/bin/gocryptfs %{goipath}
 for cmd in gocryptfs-xray; do
   %gobuild -o %{gobuilddir}/bin/$(basename $cmd) %{goipath}/$cmd
@@ -102,6 +87,9 @@ install -D -m 644 Documentation/gocryptfs-xray.1 %{buildroot}%{_mandir}/man1/goc
 %gopkgfiles
 
 %changelog
+* Mon Aug 8 2022 - 2.2.1-1
+- Upgrade to 2.2.1
+
 * Sun Jul 10 2022 Robert-André Mauchin <zebob.m@gmail.com> - 1.8.0-6
 - Rebuild for CVE-2022-{24675,28327,29526 in golang}
 
