@@ -87,7 +87,7 @@ install -D -m 644 Documentation/gocryptfs-xray.1 %{buildroot}%{_mandir}/man1/goc
 %gopkgfiles
 
 %changelog
-* Mon Aug 8 2022 - 2.2.1-1
+* Mon Aug 8 2022 Mirko <srtlg@users.noreply.github.com> - 2.2.1-1
 - Upgrade to 2.2.1
 
 * Sun Jul 10 2022 Robert-André Mauchin <zebob.m@gmail.com> - 1.8.0-6
