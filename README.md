@@ -1,3 +1,7 @@
+# Fedora Packages
+
+Some packages for Fedora which I miss.
+
 
 # Installation 
 
@@ -7,10 +11,18 @@ usermod -a -G mock myusername
 echo %_topdir $PWD > ~/.rpmmacros
 ```
 
+## Using dnf history rollback
+
+```commandline
+dnf history last
+N:=ID
+dnf history rollback N
+```
+
 
 # Packages
 
-## Modify existing
+## Modify existing from older Fedora
 
 e.g. gocryptfs exists in FC35 but not in FC36
 
@@ -30,7 +42,13 @@ rpmbuild -bb SPECS/golang-github-rfjakob-gocryptfs.spec
 
 ## Generate new
 
+```commandline
+
+```
+
 
 # References
+
+https://developer.fedoraproject.org/deployment/rpm/about.html
 
 https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds
