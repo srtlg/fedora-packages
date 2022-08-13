@@ -23,6 +23,10 @@ Summary:        Encrypted overlay filesystem written in Go
 License:        MIT
 URL:            %{gourl}
 Source0:        https://%{goipath}/releases/download/v%{version}/gocryptfs_v%{version}_src-deps.tar.gz
+Source1:        https://%{goipath}/releases/download/v%{version}/gocryptfs_v%{version}_src-deps.tar.gz.asc
+Source2:        https://nuetzlich.net/gocryptfs-signing-key.pub
+
+BuildRequires: gnupg2
 
 
 %description
@@ -46,6 +50,8 @@ Summary:       %{summary}
 This package contains the xray tool.
 
 %prep
+gpg2 --import --import-options import-export,import-minimal %{SOURCE2} > ./gpg-keyring.gpg
+gpgv2 --keyring ./gpg-keyring.gpg %{SOURCE1} %{SOURCE0}
 %goprep -k
 
 %build

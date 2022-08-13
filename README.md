@@ -49,6 +49,8 @@ rpmbuild -bb SPECS/golang-github-rfjakob-gocryptfs.spec
 
 # References
 
+https://fedoraproject.org/wiki/PackagingDrafts:GPGSignatures
+
 https://developer.fedoraproject.org/deployment/rpm/about.html
 
 https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds
