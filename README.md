@@ -43,7 +43,23 @@ rpmbuild -bb SPECS/golang-github-rfjakob-gocryptfs.spec
 ## Generate new
 
 ```commandline
+cd SPECS
++rpmdev-newspec GMAT
+```
 
+
+## Iterative generating
+
+extraction is slow
+
+```commandline
+rpmbuild -bb --noprep SPECS/foobar.spec
+```
+
+build succeeded, develop install
+
+```commandline
+rpmbuild --short-circuit -bi SPECS/foobar.spec
 ```
 
 
@@ -56,3 +72,5 @@ https://developer.fedoraproject.org/deployment/rpm/about.html
 https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds
 
 https://docs.fedoraproject.org/en-US/packaging-guidelines/AppData/
+
+https://rpm-packaging-guide.github.io/#working-with-spec-files
