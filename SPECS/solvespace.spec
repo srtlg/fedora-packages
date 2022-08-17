@@ -2,7 +2,7 @@
 
 Name: 	 solvespace
 Version: 3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 Summary: SolveSpace parametric 2d/3d CAD
 License: GPLv3
@@ -11,6 +11,7 @@ Url: 	 http://solvespace.com/
 
 Source0: https://github.com/solvespace/solvespace/releases/download/v%{version}/%{name}-%{version}.tar.xz
 
+BuildRequires: libappstream-glib
 BuildRequires: cmake
 BuildRequires: gcc-c++
 BuildRequires: zlib-devel
@@ -75,6 +76,10 @@ sed \
 %cmake_install
 #%find_lang %name
 
+%check
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
+%{__cmake_builddir}/bin/solvespace-testsuite
+
 #%files -f %name.lang
 %files -n solvespace
 %doc COPYING.txt README.md wishlist.txt
@@ -86,7 +91,7 @@ sed \
 %_datadir/icons/hicolor/*/mimetypes/application-x-solvespace.svg
 %_datadir/applications/%name.desktop
 %_datadir/mime/packages/solvespace-slvs.xml
-%_datadir/metainfo/com.solvespace.SolveSpace.metainfo.xml
+%_metainfodir/com.solvespace.SolveSpace.metainfo.xml
 %_datadir/%name
 
 %files -n libslvs
