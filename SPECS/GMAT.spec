@@ -2,7 +2,7 @@
 
 Name:           GMAT
 Version:        R2020a
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        General Mission Analysis Tool: An open-source space mission analysis tool
 
 License:        Apache
@@ -13,7 +13,7 @@ BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  f2c
 BuildRequires:  patchelf
-BuildRequires:  wxGTK3-devel < 3.1.0
+BuildRequires:  compat-wxGTK3-gtk2-devel < 3.1.0
 BuildRequires:  xerces-c-devel
 BuildRequires:  python3-devel
 BuildRequires:  swig
