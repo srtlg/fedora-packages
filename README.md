@@ -2,6 +2,8 @@
 
 Some packages for Fedora which I miss.
 
+solvespace [![Copr build status](https://copr.fedorainfracloud.org/coprs/mscholz1/solvespace/package/solvespace/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/mscholz1/solvespace/package/solvespace/)
+
 
 # Installation 
 
