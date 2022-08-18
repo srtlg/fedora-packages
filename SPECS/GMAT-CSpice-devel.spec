@@ -15,6 +15,7 @@ BuildRequires:  tcsh
 %global extractdir cspice-%{version}
 
 %description
+%{summary}
 
 %prep
 %forgemeta
