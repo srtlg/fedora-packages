@@ -53,6 +53,12 @@ cd SPECS
 +rpmdev-newspec GMAT
 ```
 
+## Check sources
+
+```cmdline
+rpmdev-spectool -gR SPECS/foobar.spec
+```
+
 
 ## Iterative generating
 
@@ -80,3 +86,5 @@ https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds
 https://docs.fedoraproject.org/en-US/packaging-guidelines/AppData/
 
 https://rpm-packaging-guide.github.io/#working-with-spec-files
+
+http://ftp.rpm.org/max-rpm/s1-rpm-inside-macros.html
