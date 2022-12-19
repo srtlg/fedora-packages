@@ -88,3 +88,5 @@ https://docs.fedoraproject.org/en-US/packaging-guidelines/AppData/
 https://rpm-packaging-guide.github.io/#working-with-spec-files
 
 http://ftp.rpm.org/max-rpm/s1-rpm-inside-macros.html
+
+https://rpm-software-management.github.io/rpm/manual/autosetup.html
