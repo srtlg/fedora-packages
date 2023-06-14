@@ -5,8 +5,8 @@
 
 # https://github.com/rfjakob/gocryptfs
 %global goipath         github.com/rfjakob/gocryptfs
-Version:                2.2.1
-%global extractdir      gocryptfs_v2.2.1_src-deps
+Version:                2.4.0
+%global extractdir      gocryptfs_v%{version}_src-deps
 
 %gometa
 
@@ -93,6 +93,9 @@ install -D -m 644 Documentation/gocryptfs-xray.1 %{buildroot}%{_mandir}/man1/goc
 %gopkgfiles
 
 %changelog
+* Tue Jun 13 2023 Mirko Scholz <srtlg@users.noreply.github.com> - 2.4.0-1
+- Upgrade to 2.4.0
+
 * Mon Aug 8 2022 Mirko <srtlg@users.noreply.github.com> - 2.2.1-1
 - Upgrade to 2.2.1
 
