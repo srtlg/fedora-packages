@@ -1,6 +1,6 @@
 Summary: Hercules S/370, ESA/390, and z/Architecture emulator
 Name: hyperion-hercules
-Version: 4.5
+Version: 4.6
 Release: 1%{?dist}
 License: QPL
 URL: http://www.softdevlabs.com/hyperion.html
@@ -31,7 +31,7 @@ the Hercules emulator.
 
 %prep
 %setup -q -n hyperion-Release_%{version}
-%patch0 -p1
+%patch 0 -p1
 
 # Scripts to be looked at, not executed from the docs
 #chmod -x util/*
