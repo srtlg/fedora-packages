@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global forgeurl https://github.com/open-simh/simh
-%global commit   ce791138b5b5365105415a9a1cf4091d6e50a43d
+%global commit   c077c22d24bc5feda3a106c53d604923af19e14d
 %forgemeta
 
 Name:           open-simh
-Version:        20221205
+Version:        20231218
 Release:        1%{?dist}
 Summary:        The Open SIMH simulators package 
 
