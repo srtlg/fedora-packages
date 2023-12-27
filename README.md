@@ -59,6 +59,11 @@ cd SPECS
 rpmdev-spectool -gR SPECS/foobar.spec
 ```
 
+## install dependencies
+
+```cmdline
+sudo dnf builddep SPECS/foobar.spec
+```
 
 ## Iterative generating
 
