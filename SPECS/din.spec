@@ -1,12 +1,12 @@
 Name:           din
-Version:        55
+Version:        58.1
 Release:        1%{?dist}
 Summary:        DIN is noise: A sound synthesizer and musical instrument.
 
 License:        GPLv2
 URL:            https://dinisnoise.org/
 Source0:        https://archive.org/download/dinisnoise_source_code/din-%{version}.tar.gz
-Patch0:         din-54-devendor_rtaudio_rtmidi.patch
+Patch0:         din-58.1-devendor_rtaudio_rtmidi.patch
 
 BuildRequires:  SDL-devel
 BuildRequires:  rtmidi-devel
