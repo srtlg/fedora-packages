@@ -1,6 +1,6 @@
 Name:           emacs-pgtk
 Version:        29.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GNU Emacs text editor with Wayland support
 
 License:        GPL-3.0-or-later AND CC0-1.0
@@ -20,6 +20,9 @@ BuildRequires:  libtree-sitter-devel
 BuildRequires:  ncurses-devel
 BuildRequires:  libotf-devel
 BuildRequires:  libwebp-devel
+BuildRequires:  giflib-devel
+BuildRequires:  libpng-devel
+BuildRequires:  libjpeg-turbo-devel
 BuildRequires:  sqlite-devel
 BuildRequires:  librsvg2-devel
 BuildRequires:  dbus-devel
@@ -57,6 +60,9 @@ LDFLAGS=-Wl,-z,relro;  export LDFLAGS;
 --with-modules \
 --with-json \
 --with-native-compilation=aot \
+--with-gif \
+--with-png \
+--with-jpeg \
 --with-webp \
 --with-rsvg \
 --with-mailutils \
