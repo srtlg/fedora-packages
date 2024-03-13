@@ -24,7 +24,6 @@ Library for simple API to spawn processes and communicate with them
 
 %prep
 %forgesetup
-%setup -q -n %{topdir}
 
 
 %build

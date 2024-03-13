@@ -1,10 +1,16 @@
+%global debug_package %{nil}
+%global forgeurl https://github.com/SDL-Hercules-390/hyperion/
+%global version 4.7
+%global tag Release_%{version}
+%forgemeta
+
 Summary: Hercules S/370, ESA/390, and z/Architecture emulator
 Name: hyperion-hercules
-Version: 4.7
+Version: %{version}
 Release: 1%{?dist}
 License: QPL
 URL: http://www.softdevlabs.com/hyperion.html
-Source0: https://github.com/SDL-Hercules-390/hyperion/archive/refs/tags/Release_%{version}.tar.gz
+Source0: %{forgesource}
 Patch0: hyperion-hercules-4.5-fedora.patch
 BuildRequires: zlib-devel
 BuildRequires: bzip2-devel
@@ -30,7 +36,7 @@ the Hercules emulator.
 
 
 %prep
-%setup -q -n hyperion-Release_%{version}
+%setup -q -n %{topdir}
 %patch 0 -p1
 
 # Scripts to be looked at, not executed from the docs

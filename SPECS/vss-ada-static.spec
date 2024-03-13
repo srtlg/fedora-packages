@@ -24,7 +24,6 @@ A high level string and text processing library.
 
 %prep
 %forgesetup
-%setup -q -n %{topdir}
 
 
 %build

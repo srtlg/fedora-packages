@@ -26,7 +26,6 @@ Server implementing the Microsoft Language Protocol for Ada and SPARK
 
 %prep
 %forgesetup
-%setup -q -n %{topdir}
 
 
 %build
