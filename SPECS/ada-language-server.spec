@@ -15,8 +15,8 @@ Source:         %{forgesource}
 BuildRequires:  gcc-gnat fedora-gnat-project-common
 BuildRequires:  make
 BuildRequires:  gprbuild
-BuildRequires:  vss-ada-static
 BuildRequires:  spawn-ada-static
+BuildRequires:  vss-ada-devel
 BuildRequires:  gnatcoll-devel
 # Build only on architectures where GPRbuild is available:
 ExclusiveArch:  %{GPRbuild_arches}
@@ -26,16 +26,24 @@ Server implementing the Microsoft Language Protocol for Ada and SPARK
 
 %prep
 %forgesetup
+ed Makefile <<EOF
+?gnat/tester.gpr
+d
+?gnat/tester.gpr
+d
+wq
+EOF
 
 
 %build
-%make_build LIBRARY_TYPE=static BUILD_MODE=prod "GPRBUILD_FLAGS=%{GNAT_builder_flags}"
+%make_build \
+BUILD_MODE=prod \
+"GPRBUILD_FLAGS=%{GNAT_builder_flags}"
 
 
 %install
 %make_install PREFIX=/usr \
-GPRDIR=%{_GNAT_project_dir} \
-LIBDIR=%{_libdir}
+BUILD_MODE=prod
 
 rm -rf %{buildroot}%{_GNAT_project_dir}/manifests
 

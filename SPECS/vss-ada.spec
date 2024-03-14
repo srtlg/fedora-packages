@@ -3,7 +3,7 @@
 %define tag v24.0.0
 %forgemeta
 
-Name:           vss-ada-static
+Name:           vss-ada
 Version:        %{fileref}
 Release:        1%{?dist}
 Summary:        A high level string and text processing library for Ada
@@ -21,13 +21,23 @@ ExclusiveArch:  %{GPRbuild_arches}
 %description
 A high level string and text processing library.
 
+%package devel
+Summary:        Development files for a high level string and text processing library for Ada
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+BuildRequires:  fedora-gnat-project-common
+
+%description devel
+A high level string and text processing library.
+
+Development package
+
 
 %prep
 %forgesetup
 
 
 %build
-%make_build BUILD_MODE=prod "GPRBUILD_FLAGS=%{GNAT_builder_flags}" build-libs-static
+%make_build BUILD_MODE=prod "GPRBUILD_FLAGS=%{GNAT_builder_flags}" build-libs-relocatable
 
 
 %install
@@ -35,7 +45,7 @@ A high level string and text processing library.
 PREFIX=/usr \
 GPRDIR=%{_GNAT_project_dir} \
 LIBDIR=%{_libdir} \
-install-libs-static
+install-libs-relocatable
 
 rm -rf %{buildroot}%{_GNAT_project_dir}/manifests
 
@@ -43,9 +53,12 @@ rm -rf %{buildroot}%{_GNAT_project_dir}/manifests
 %files
 %doc README.md
 %license LICENSE.txt
+%{_libdir}/vss/relocatable/*.so
+%{_libdir}/*.so
+
+%files devel
 %{_includedir}/vss/
-%{_libdir}/vss/static/*.ali
-%{_libdir}/vss/static/*.a
+%{_libdir}/vss/relocatable/*.ali
 %{_GNAT_project_dir}/*.gpr
 
 %changelog

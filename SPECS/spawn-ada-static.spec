@@ -1,6 +1,6 @@
 %define debug_package %{nil}
 %define forgeurl https://github.com/AdaCore/spawn
-%define tag v23.0.0
+%define tag v24.0.0
 %forgemeta
 
 Name:           spawn-ada-static
@@ -24,10 +24,17 @@ Library for simple API to spawn processes and communicate with them
 
 %prep
 %forgesetup
+ed Makefile <<EOF
+?gnat/tests/spawn_tests.gpr
+d
+/gprinstall/s/$/ -XLIBRARY_TYPE=static-pic/
+wq
+EOF
 
 
 %build
-%make_build BUILD_MODE=prod "GPRBUILD_FLAGS=%{GNAT_builder_flags}"
+%make_build BUILD_MODE=prod "GPRBUILD_FLAGS=%{GNAT_builder_flags} -XLIBRARY_TYPE=static-pic"
+
 
 
 %install
@@ -40,7 +47,7 @@ rm -rf %{buildroot}%{_includedir}/spawn/posix_const.c
 
 %files
 %doc README.md
-%license LICENSE
+%license LICENSE.txt
 %{_includedir}/spawn/*.ads
 %{_includedir}/spawn/*.adb
 %{_libdir}/spawn/*.ali
