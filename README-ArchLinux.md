@@ -28,6 +28,8 @@ rm -f /etc/systemd/nspawn/fedora-$release.nspawn
 systemd-nspawn -D /var/lib/machines/fedora-$release passwd
 systemd-nspawn -D /var/lib/machines/fedora-$release sh -c "useradd -m $USER; passwd $USER"
 
+echo "%_topdir /home/$USER/Github/fedora-packages" > /home/$USER/.rpmmacros
+
 # this is a link, prevents nspawn to function
 rm /var/lib/machines/fedora-$release/etc/resolv.conf
 

@@ -3,7 +3,7 @@
 %define tag v24.0.0
 %forgemeta
 
-Name:           vss-ada
+Name:           libvss-ada
 Version:        %{fileref}
 Release:        1%{?dist}
 Summary:        A high level string and text processing library for Ada
@@ -15,6 +15,7 @@ Source:         %{forgesource}
 BuildRequires:  gcc-gnat fedora-gnat-project-common
 BuildRequires:  make
 BuildRequires:  gprbuild
+BuildRequires:  xmlada-devel
 # Build only on architectures where GPRbuild is available:
 ExclusiveArch:  %{GPRbuild_arches}
 

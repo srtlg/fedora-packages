@@ -15,8 +15,8 @@ Source:         %{forgesource}
 BuildRequires:  gcc-gnat fedora-gnat-project-common
 BuildRequires:  make
 BuildRequires:  gprbuild
-BuildRequires:  spawn-ada-static
-BuildRequires:  vss-ada-devel
+BuildRequires:  libspawn-ada-static
+BuildRequires:  libvss-ada-devel
 BuildRequires:  gnatcoll-devel
 # Build only on architectures where GPRbuild is available:
 ExclusiveArch:  %{GPRbuild_arches}

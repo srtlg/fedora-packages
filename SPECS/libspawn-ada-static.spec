@@ -3,7 +3,7 @@
 %define tag v24.0.0
 %forgemeta
 
-Name:           spawn-ada-static
+Name:           libspawn-ada-static
 Version:        %{fileref}
 Release:        1%{?dist}
 Summary:        Library for simple API to spawn processes and communicate with them
