@@ -80,6 +80,13 @@ rpmbuild --short-circuit -bi SPECS/foobar.spec
 ```
 
 
+## New upstream
+
+```commandline
+rpmdev-bumpspec -c 'Upgrade to X' SPECS/foobar.spec
+```
+
+
 # References
 
 https://fedoraproject.org/wiki/PackagingDrafts:GPGSignatures
