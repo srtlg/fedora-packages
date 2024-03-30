@@ -1,6 +1,6 @@
 Name:           emacs-pgtk
-Version:        29.2
-Release:        2%{?dist}
+Version:        29.3
+Release:        1%{?dist}
 Summary:        GNU Emacs text editor with Wayland support
 
 License:        GPL-3.0-or-later AND CC0-1.0
