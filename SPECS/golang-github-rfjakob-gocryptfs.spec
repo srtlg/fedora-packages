@@ -5,7 +5,7 @@
 
 # https://github.com/rfjakob/gocryptfs
 %global goipath         github.com/rfjakob/gocryptfs
-Version:                2.4.0
+Version:                2.6.1
 %global extractdir      gocryptfs_v%{version}_src-deps
 
 %gometa
@@ -17,7 +17,7 @@ Encrypted overlay filesystem written in Go.}
 %global godocs          README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Encrypted overlay filesystem written in Go
 
 License:        MIT
@@ -93,6 +93,9 @@ install -D -m 644 Documentation/gocryptfs-xray.1 %{buildroot}%{_mandir}/man1/goc
 %gopkgfiles
 
 %changelog
+* Mon Aug 11 2025 Mirko Scholz <srtlg@users.noreply.github.com> - 2.6.1-2
+- Upgrade to v2.6.1
+
 * Tue Jun 13 2023 Mirko Scholz <srtlg@users.noreply.github.com> - 2.4.0-1
 - Upgrade to 2.4.0
 
