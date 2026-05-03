@@ -1,6 +1,6 @@
 %global debug_package %{nil}
 %global forgeurl https://github.com/SDL-Hercules-390/hyperion/
-%global version 4.7
+%global version 4.9.1
 %global tag Release_%{version}
 %forgemeta
 

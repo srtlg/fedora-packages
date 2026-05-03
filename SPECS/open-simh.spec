@@ -1,11 +1,11 @@
 %global debug_package %{nil}
 %global forgeurl https://github.com/open-simh/simh
-%global commit   e444c674f6ec57a570dd42d07d03dd56a30cc9ff
+%global commit   5ce7d86a7bb3242e7edaba234e99fbbeff9a88d0
 %forgemeta
 
 Name:           open-simh
 Version:        3.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The Open SIMH simulators package 
 
 License:        MIT
