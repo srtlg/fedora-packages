@@ -1,15 +1,18 @@
 %global debug_package %{nil}
+%global forgeurl https://github.com/solvespace/solvespace
 
 Name: 	 solvespace
 Version: 3.2
-Release: 1%{?dist}
+Release: 2%{?dist}
+
+%forgemeta
 
 Summary: SolveSpace parametric 2d/3d CAD
 License: GPLv3
 Group: 	 Graphics
 Url: 	 http://solvespace.com/
 
-Source0: https://github.com/solvespace/solvespace/releases/download/v%{version}/%{name}-%{version}.tar.xz
+Source0: ${forgesource}
 
 BuildRequires: libappstream-glib
 BuildRequires: cmake
@@ -63,6 +66,8 @@ kernel of SolveSpace, built as a library.
 This package includes development files for libslvs.
 
 %prep
+%forgesetup
+
 %setup -q
 sed \
 -e "s/include(GetGitCommitHash)/#/" \
