@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name: 	 solvespace
-Version: 3.1
-Release: 2%{?dist}
+Version: 3.2
+Release: 1%{?dist}
 
 Summary: SolveSpace parametric 2d/3d CAD
 License: GPLv3
@@ -90,6 +90,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
 %_datadir/icons/hicolor/*/mimetypes/application-x-solvespace.png
 %_datadir/icons/hicolor/*/mimetypes/application-x-solvespace.svg
 %_datadir/applications/%name.desktop
+%_datadir/thumbnailers/%name.thumbnailer
 %_datadir/mime/packages/solvespace-slvs.xml
 %_metainfodir/com.solvespace.SolveSpace.metainfo.xml
 %_datadir/%name
@@ -102,6 +103,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
 %_includedir/slvs.h
 
 %changelog
+* Sun Oct 18 2026 Mirko <srtlg@users.noreply.github.com> 3.2-1
+- Upgrade to 3.2
+
 * Tue Aug 9 2022 Mirko <srtlg@users.noreply.github.com> 3.1-1
 - Upgrade to 3.1
 
