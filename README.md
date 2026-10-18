@@ -85,6 +85,7 @@ enabling ccache, append this to /etc/mock/site-defaults.cfg
 ```
 config_opts['plugin_conf']['ccache_enable'] = True
 config_opts['plugin_conf']['ccache_opts']['max_cache_size'] = '10G'
+config_opts['macros']['_lto_cflags'] = '%{nil}'
 ```
 
 
