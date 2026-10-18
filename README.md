@@ -15,6 +15,8 @@ GMAT
 dnf install mock rpmdevtools
 usermod -a -G mock myusername
 echo %_topdir $PWD > ~/.rpmmacros
+-or-
+echo "%_topdir %{getenv:HOME}/src/fedora-packages" > ~/.rpmmacros
 ```
 
 ## Using dnf history rollback
