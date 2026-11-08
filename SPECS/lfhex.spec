@@ -1,11 +1,16 @@
+%global debug_package %{nil}
+%global forgeurl https://github.com/srtlg/lfhex
+
 Name:           lfhex
 Version:        0.44
 Release:        1%{?dist}
 Summary:        Large file hex editor
 
+%forgemeta
+
 License:        GPLv2
-URL:            https://github.com/srtlg/lfhex
-Source0:        https://github.com/srtlg/lfhex/archive/refs/tags/v%{version}.tar.gz 
+URL:            %{forgeurl}
+Source0:        %{forgesource}
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  bison
