@@ -113,6 +113,13 @@ rpmdev-bumpspec -c 'Upgrade to X' SPECS/foobar.spec
 ```
 
 
+# COPR Updated Build not Recognized
+
+```
+dnf upgrade --refresh your-package-name
+```
+
+
 # References
 
 https://fedoraproject.org/wiki/PackagingDrafts:GPGSignatures
