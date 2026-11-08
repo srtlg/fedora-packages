@@ -12,7 +12,7 @@ scantailor
 GMAT
 
 
-# Installation 
+# Installation
 
 ```commandline
 dnf install mock rpmdevtools
@@ -64,7 +64,7 @@ cd SPECS
 rpmdev-spectool -gR SPECS/foobar.spec
 ```
 
-## install dependencies
+## Install dependencies
 
 ```cmdline
 sudo dnf builddep SPECS/foobar.spec
@@ -89,6 +89,20 @@ enabling ccache, append this to /etc/mock/site-defaults.cfg
 config_opts['plugin_conf']['ccache_enable'] = True
 config_opts['plugin_conf']['ccache_opts']['max_cache_size'] = '10G'
 config_opts['macros']['_lto_cflags'] = '%{nil}'
+```
+
+
+## Debugging rpm
+
+```
+rpm --eval "$( cat SPEC/solvespace.spec )"
+```
+
+
+## Chaining mock packages
+
+```
+mock --chain python3-path_and_address-2.0.1-1.fc44.src.rpm python3-grip-4.6.1-1.fc44.src.rpm
 ```
 
 
