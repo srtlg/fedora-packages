@@ -1,9 +1,9 @@
 %global debug_package %{nil}
 %global forgeurl https://github.com/solvespace/solvespace
 
-Name: 	 solvespace
-Version: 3.2
-Release: 2%{?dist}
+Name: solvespace
+Version: 3.3
+Release: 1%{?dist}
 
 %forgemeta
 
@@ -12,23 +12,21 @@ License: GPLv3
 Group: 	 Graphics
 Url: 	 http://solvespace.com/
 
-Source0: ${forgesource}
+Source0: https://github.com/solvespace/solvespace/releases/download/v%{version}/solvespace-%{version}.tar.xz
 
 BuildRequires: libappstream-glib
 BuildRequires: cmake
 BuildRequires: gcc-c++
+BuildRequires: libomp-devel
 BuildRequires: zlib-devel
 BuildRequires: libpng-devel
 BuildRequires: cairo-devel
 BuildRequires: freetype-devel
-BuildRequires: json-c-devel
 BuildRequires: fontconfig-devel
-BuildRequires: gtkmm30-devel
-BuildRequires: pangomm-devel
+BuildRequires: qt6-qtbase-devel
 BuildRequires: mesa-libGL-devel
 BuildRequires: mesa-libGLU-devel
 BuildRequires: libspnav-devel
-BuildRequires: eigen3-devel
 
 %description
 SolveSpace is a parametric 2d/3d CAD program. Applications include:
@@ -74,7 +72,7 @@ sed \
 -e "s/# set(GIT_COMMIT_HASH/set(GIT_COMMIT_HASH/" -i CMakeLists.txt
 
 %build
-%cmake . -Wno-dev
+%cmake . -Wno-dev -DUSE_QT_GUI:BOOL=ON -DENABLE_OPENMP:BOOL=ON
 %cmake_build
 
 %install
@@ -88,13 +86,13 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
 #%files -f %name.lang
 %files -n solvespace
 %doc COPYING.txt README.md wishlist.txt
-%_bindir/%name
+%_bindir/%name-qt
 %_bindir/%name-cli
 %_datadir/icons/hicolor/*/apps/%name.png
 %_datadir/icons/hicolor/*/apps/%name.svg
 %_datadir/icons/hicolor/*/mimetypes/application-x-solvespace.png
 %_datadir/icons/hicolor/*/mimetypes/application-x-solvespace.svg
-%_datadir/applications/%name.desktop
+%_datadir/applications/%{name}-qt.desktop
 %_datadir/thumbnailers/%name.thumbnailer
 %_datadir/mime/packages/solvespace-slvs.xml
 %_metainfodir/com.solvespace.SolveSpace.metainfo.xml
@@ -108,6 +106,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
 %_includedir/slvs.h
 
 %changelog
+* Sun Nov 08 2026 Mirko <srtlg@users.noreply.github.com> - 3.3-1
+- Upgrade to 3.3
+
 * Sun Oct 18 2026 Mirko <srtlg@users.noreply.github.com> 3.2-1
 - Upgrade to 3.2
 
