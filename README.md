@@ -6,7 +6,7 @@ Some packages for Fedora which I miss.
 solvespace
 
 [![copr build status](https://copr.fedorainfracloud.org/coprs/mscholz1/scantailor-advanced/package/scantailor-advanced/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/mscholz1/scantailor-advanced/package/scantailor-advanced/)
-scantailor
+scantailor-advanced
 
 [![Copr build status](https://copr.fedorainfracloud.org/coprs/mscholz1/GMAT/package/GMAT/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/mscholz1/GMAT/package/GMAT/)
 GMAT
